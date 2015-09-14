@@ -1,0 +1,18 @@
+<h2>Edit Posting</h2>
+
+<form class="fadein fadeout">
+ <label for="jobTitle">Enter Job Title</label>
+   <input class="input" type="text" name="jobTitle" id="jobTitle" ng-model="updateJobsly.jobTitle" placeholder="Enter Job Title" required>
+ <label for="hiringCo">Enter Hiring Company</label>
+   <input class="input" type="text" name="hiringCo" id="hiringCo" ng-model="updateJobsly.hiringCo" placeholder="Enter Hiring Company" required>
+ <label for="desc">Enter Description</label>
+   <textarea class="input" type="text" name="desc" id="desc" ng-model="updateJobsly.desc" placeholder="Enter Description" required></textarea>
+   <label for="resp">Enter responsibilities</label>
+     <textarea class="input" type="text" id="resp" name="resp" ng-model="updateJobsly.resp" placeholder="Enter responsibilities"></textarea>
+<div class="inline">
+  <button class="button" type="submit" ng-click="addJobsly(jobsly)">Save Posting</button>
+  <a class="button right clear" ng-href="/" ng-click="deleteJobsly(jobsly)">Delete Posting</a>
+    <a class="left clear" ng-href="/">Cancel</a>
+</div>
+
+</form>

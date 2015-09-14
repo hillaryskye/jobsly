@@ -1,0 +1,72 @@
+<h2>{{oneJobsly.jobTitle}} - {{oneJobsly.hiringCo}}</h2>
+<!-- <a class="button1 right clear" ng-href="/#/edit">Edit Job Posting</a>
+ -->
+<button class="right clear button" ng-click="editForm = ! editForm">Edit Jobsly</button>
+
+<p class="input">Posted {{oneJobsly.date}}</p>
+<p class="box2 input" name="desc" id="desc">{{oneJobsly.desc}}</p>
+<p class="input">Responsibilities:</p>
+<p class="box2 input" name="resp" id="resp">{{oneJobsly.resp}}</p>
+<button class="button" ng-click="addApplication = ! addApplication">Apply for Job</button>
+<p>{{oneJobsly.filled}}</p>
+
+<form class="fadein fadeout" ng-show="editForm">
+ <label for="jobTitle">Enter Job Title</label>
+   <input class="input" type="text" name="jobTitle" id="jobTitle" ng-model="oneJobsly.jobTitle" placeholder="Enter Job Title" required>
+ <label for="hiringCo">Enter Hiring Company</label>
+   <input class="input" type="text" name="hiringCo" id="hiringCo" ng-model="oneJobsly.hiringCo" placeholder="Enter Hiring Company" required>
+ <label for="desc">Enter Description</label>
+   <textarea class="input" type="text" name="desc" id="desc" ng-model="oneJobsly.desc" placeholder="Enter Description" required></textarea>
+   <label for="resp">Enter responsibilities</label>
+     <textarea class="input" type="text" id="resp" name="resp" ng-model="oneJobsly.resp" placeholder="Enter responsibilities"></textarea>
+  <p class="input">The position is...</p>
+
+    <label class="input label">Open
+      <input type="radio" name="filled" ng-value="false" ng-model="oneJobsly.filled">
+    </label>
+    <label class="input label">Closed
+      <input type="radio" name="filled" ng-value="true" ng-model="oneJobsly.filled">
+    </label>
+
+<div class="inline">
+  <button class="button" type="submit" ng-click="editJobsly(jobsly)">Save Posting</button>
+  <button class="button" type="submit" ng-click="deleteJobsly(jobsly)">Delete Posting</button>
+    <a class="left clear" ng-href="/">Cancel</a>
+</div>
+
+</form>
+
+
+<h2>Apply for {{oneJobsly.jobTitle}} at {{oneJobsly.hiringCo}}</h2>
+<form class="fadein fadeout" ng-show="addApplication">
+   <label for="name">Enter Name</label>
+     <input class="input" type="text" name="name" id="name" ng-model="oneJobsly.newApplication.name" placeholder="Enter Full Name" required>
+   <label for="email">Enter Email</label>
+     <input class="input" type="text" name="email" id="email" ng-model="oneJobsly.newApplication.email" placeholder="Enter Email" required>
+    <label for="url">Enter Resume URL</label>
+      <input class="input" type="text" id="resp" name="resp" ng-model="oneJobsly.newApplication.url" placeholder="Enter Resume url">
+  <div class="inline">
+     <button class="button" type="submit" ng-click="newApplication(oneJobsly)">Create Application</button>
+<!--     <a ng-href="/#/{{jobsly._id}}/application"></a>
+ -->
+     <a class="left clear" ng-href="/">Cancel</a>
+  </div>
+</form>
+<!-- <button ng-click=""></button>
+ -->
+ <div ng-repeat="application in oneJobsly.newApplications">
+  <table>
+    <tr>Name</tr>
+    <tr>Email</tr>
+    <tr>Link to Resume</tr>
+    <tr></tr>
+    <td>{{application.name}}</td>
+    <td>{{application.email}}</td>
+    <td>{{application.url}}</td>
+    <td>
+      <form ng-submit="deleteApplication(oneJobsly, comment)">
+        <input type="submit" value="Delete Application"></input>
+      </form>
+    </td>
+  </table>
+</div>

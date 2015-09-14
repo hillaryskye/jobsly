@@ -1,0 +1,50 @@
+<h2>Create Job Listing</h2>
+<section>
+<!-- <button class="button" ng-click="addForm = !addForm">Add jobslys</button>
+<button class="button" ng-click="showForm = !showForm">Preview jobslys</button>
+ -->
+  <form class="fadein fadeout">
+   <label for="jobTitle">Enter Job Title</label>
+     <input class="input" type="text" name="jobTitle" id="jobTitle" ng-model="jobsly.jobTitle" placeholder="Enter Job Title" required>
+   <label for="hiringCo">Enter Hiring Company</label>
+     <input class="input" type="text" name="hiringCo" id="hiringCo" ng-model="jobsly.hiringCo" placeholder="Enter Hiring Company" required>
+   <label for="desc">Enter Description</label>
+     <textarea class="input" type="text" name="desc" id="desc" ng-model="jobsly.desc" placeholder="Enter Description" required></textarea>
+     <label for="resp">Enter responsibilities</label>
+       <textarea class="input" type="text" id="resp" name="resp" ng-model="jobsly.resp" placeholder="Enter responsibilities"></textarea>
+  <div class="inline">
+    <button class="button" type="submit" ng-click="addJobsly(jobsly)">Submit</button>
+      <a class="left clear" ng-href="/">Cancel</a>
+  </div>
+
+ </form>
+
+</section>
+<section>
+  <h2>Job Listings</h2>
+  <div class="listings" ng-repeat="jobsly in jobslys">
+    <a ng-href="/#/{{jobsly._id}}">{{jobsly.jobTitle}}</a>
+      <li class="button right clear" ng-click="deleteJobsly(jobsly)">Delete Job</li>
+      <p>Job Title: {{jobsly.jobTitle}}</p>
+      <p>Company Name: {{jobsly.lasthiringCoName}}</p>
+      <p class="box" name="desc" id="desc">{{jobsly.desc}}</p>
+      <p class="box" name="resp" id="resp">{{jobsly.resp}}</p>
+  </div>
+
+<!--        <button class="right clear button" ng-click="editForm = ! editForm">Edit Jobsly</button>
+ -->
+    <form ng-submit="editJobsly(jobsly)" class="comment-form fadein fadeout" ng-show="editForm" name="editJobslyForm">
+       <label for="to">Jobsly To</label>
+         <input class="subject" type="text" id="to" name="to" ng-model="jobsly.to">
+       <label for="from">Jobsly From</label>
+         <input class="subject" type="text" id="from" name="from" ng-model="jobsly.from">
+        <label for="subject">Subject</label>
+           <input class="subject" type="text" id="subject" name="subject" ng-model="jobsly.subject">
+        <label for="message">Message</label>
+           <textarea type="text" id="message" name="message" ng-model="jobsly.message"></textarea>
+       <input class="button" type="submit"></input>
+       </form>
+<!-- <button class="left" ng-click="AddCommentsForm(jobsly)">Add Comments</button>
+ -->
+</div>
+</section>

@@ -1,0 +1,30 @@
+<h2>Apply for {{oneJobsly.jobTitle}} at {{oneJobsly.hiringCo}}</h2>
+
+<form class="fadein fadeout" ng-show="addApplication">
+   <label for="name">Enter Name</label>
+     <input class="input" type="text" name="name" id="name" ng-model="oneJobsly.newApplication.name" placeholder="Enter Full Name" required>
+   <label for="email">Enter Email</label>
+     <input class="input" type="text" name="email" id="email" ng-model="oneJobsly.newApplication.email" placeholder="Enter Email" required>
+    <label for="url">Enter Resume URL</label>
+      <input class="input" type="text" id="resp" name="resp" ng-model="oneJobsly.newApplication.url" placeholder="Enter Resume url">
+  <div class="inline">
+    <button class="button" type="submit" ng-click="newApplication(jobsly)">Create Application</button
+      <a class="left clear" ng-href="/">Cancel</a>
+  </div>
+</form>
+<!-- <button ng-click=""></button>
+ --><div ng-repeat="application in jobsly.applications">
+  <table>
+    <tr>Name</tr>
+    <tr>Email</tr>
+    <tr>Link to Resume</tr>
+    <td>{{oneJobsly.name}}</td>
+    <td>{{oneJobsly.email}}</td>
+    <td>{{oneJobsly.url}}</td>
+    <td>
+      <form ng-submit="deleteApplication(jobsly, comment)">
+        <input type="submit" value="Delete Application"></input>
+      </form>
+    </td>
+  </table>
+</div>
